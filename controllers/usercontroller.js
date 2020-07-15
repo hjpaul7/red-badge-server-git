@@ -75,8 +75,6 @@ router.put("/:id", (req, res) => {
     );
 });
 
-module.exports = router;
-
 // Get Users (Admin)
 router.get("/", (req, res) => {
   User.findAll({
@@ -145,3 +143,5 @@ router.get("/:username", (req, res) => {
       })
     );
 });
+
+module.exports = router;
