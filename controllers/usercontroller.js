@@ -80,7 +80,7 @@ module.exports = router;
 // Get Users (Admin)
 router.get("/", (req, res) => {
   User.findAll({
-    where: { id: req.user.id }, include: ['times']
+    where: { id: req.user.id },
   })
     .then((users) =>
       res.status(200).json({
