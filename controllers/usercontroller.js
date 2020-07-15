@@ -76,9 +76,9 @@ router.put("/:id", (req, res) => {
 });
 
 // Get Users (Admin)
-router.get("/", (req, res) => {
+router.get("/adminget", (req, res) => {
   User.findAll({
-    where: { id: req.user.id },
+    where: {},
   })
     .then((users) =>
       res.status(200).json({
@@ -124,24 +124,17 @@ router.delete("/:id", (req, res) => {
 });
 
 // User Portal Get User by ID`
-router.get("/:username", (req, res) => {
-  User.findOne({
-    where: {
-      username: req.params.username,
-      // id: req.params.id,
-      // id: req.user.id,
-    },
-  })
-    .then((user) =>
-      res.status(200).json({
-        user: user,
-      })
-    )
-    .catch((err) =>
-      res.status(500).json({
-        error: err,
-      })
-    );
-});
+// router.get("/:username", (req, res) => {
+//     .then((user) =>
+//       res.status(200).json({
+//         user: user,
+//       })
+//     )
+//     .catch((err) =>
+//       res.status(500).json({
+//         error: err,
+//       })
+//     );
+// });
 
 module.exports = router;
