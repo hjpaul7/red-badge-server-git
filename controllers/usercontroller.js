@@ -75,6 +75,26 @@ router.put("/:id", (req, res) => {
     );
 });
 
+// Get Users DB assocation
+router.get("/", (req, res) => {
+  User.findAll({
+    where: {
+      id: req.user.id,
+    },
+    include: ["times"],
+  })
+    .then((users) =>
+      res.status(200).json({
+        users: users,
+      })
+    )
+    .catch((err) =>
+      res.status(500).json({
+        error: err,
+      })
+    );
+});
+
 // Get Users (Admin)
 router.get("/adminget", (req, res) => {
   User.findAll({
